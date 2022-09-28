@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,15 +10,15 @@ namespace RedirectFilesCreator
 {
     public static class GitExplorer
     {
-        private const string pathToRepo = @"This PC\Documents\Repo";
-        private const string pathToRedirectRepo = @"This PC\\Documents\\Redirect";
+        private const string pathToRepo = @"C:\Users\ishim\Documents\Repo";
+        private const string pathToRedirectRepo = @"C:\Users\ishim\Documents\Redirect";
         private const string testRepo = "https://github.com/jishimwe/PlayMusic.git";
 
         // Constants for filenaming
         private const string RdrExt = ".redir";
 
         public static string PathToRepo => pathToRepo;
-        public static string PathToRedirectRepo => pathToRedirectRepo;
+        public static string PathToRedirectRepo => pathToRedirectRepo; 
         public static string TestRepo => testRepo;
 
 
@@ -46,7 +47,7 @@ namespace RedirectFilesCreator
                 DirectoryInfo destInfo = new DirectoryInfo(destPath);
                 if (destInfo.Exists)
                 {
-                    destInfo.Delete();
+                    destInfo.Delete(true);
                 }
                 destInfo.Create();
 
@@ -64,7 +65,7 @@ namespace RedirectFilesCreator
         public static bool DirectoryWalk(DirectoryInfo origDir, DirectoryInfo destDir)
         {
             FileInfo[] files = null;
-            DirectoryInfo dirs = null;
+            DirectoryInfo[] dirs = null;
             try
             {
                 files = origDir.GetFiles("*.*");
@@ -73,16 +74,32 @@ namespace RedirectFilesCreator
                 Console.WriteLine(e.Message);
             }
 
-            foreach (FileInfo fi in files {
+            foreach (FileInfo fi in files) 
+            {
                 string redirFilename = fi.Name + RdrExt;
                 string redirFilepath = Path.Combine(destDir.FullName, redirFilename);
                 using (FileStream fs = File.Create(redirFilepath))
                 {
-                    fs.Write(fi.FullPath);
+                    byte[] data = new UTF8Encoding(true).GetBytes(fi.FullName);
+                    fs.Write(data);
                 }
             }
 
-            return false;
+            try
+            {
+                dirs = origDir.GetDirectories();
+                foreach (DirectoryInfo di in dirs)
+                {
+                    string redirPath = destDir.FullName + "\\" + di.Name;
+                    Directory.CreateDirectory(redirPath);
+                    if (!DirectoryWalk(di, new DirectoryInfo(redirPath))) return false;
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return true;
         }
     }
 }
