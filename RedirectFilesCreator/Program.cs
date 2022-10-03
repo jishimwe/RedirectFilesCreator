@@ -4,6 +4,9 @@ using RedirectFilesCreator;
 
 class MainClass
 {
+    /* 
+     * Main arguments -s "source code directory" -d "redirect files directory"
+     */
     static void Main(string[] args)
     {
         if (args == null)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Naqkcm3yeDygMncwyHa20fjeE24hF4rQ6NUhL3vws8fluJ73xa7IKhtRqUiU161epki+6HN/7I469BnXwUtYsw==",
+  "dgSpecHash": "0/FL6ECqENYffp1NicF7AtK+2PTH0wo3NJZVKAvvf4lLQ7tyjTdHFWoc5O5n5j0Oe0GEkqE433otcAZKTmA6dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+  "projectFilePath": "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ishim\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
     "C:\\Users\\ishim\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512"
