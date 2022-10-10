@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace RedirectFilesCreator
 {
+
+    // TODO: Git integration
     public static class GitExplorer
     {
         private const string pathToRepo = @"C:\Users\ishim\Documents\Repo";
