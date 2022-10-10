@@ -2,7 +2,7 @@
   "profiles": {
     "RedirectFilesCreator": {
       "commandName": "Project",
-      "commandLineArgs": "-s C:\\Users\\ishim\\Documents\\Repo\r\n-d C:\\Users\\ishim\\Documents\\RedirectCL"
+      "commandLineArgs": "-s C:\\Users\\ishim\\Documents\\Repo\\PlayMusic\r\n-d C:\\Users\\ishim\\Documents\\RedirectCL\\PlayMusic"
     }
   }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {}
+    "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {
+    "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+        "projectUniqueName": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
         "projectName": "RedirectFilesCreator",
-        "projectPath": "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+        "projectPath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
         "packagesPath": "C:\\Users\\ishim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\obj\\",
+        "outputPath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

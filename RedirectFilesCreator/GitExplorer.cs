@@ -29,10 +29,23 @@ namespace RedirectFilesCreator
             var co = new CloneOptions();
 
             // TODO: Ask for credentials to avoid hardcoded password
-            co.CredentialsProvider = (_url, _user, _cred) => new UsernamePasswordCredentials { Username = "jpishimwe", Password = "ISHjp1160" };
+            co.CredentialsProvider = (_url, _user, _cred) => new UsernamePasswordCredentials { Username = "jpishimwe", Password = "" };
             Repository.Clone(TestRepo, PathToRepo, co);
 
             return true;
+        }
+
+        // Open a redirect file and check if the file redirected to exist
+        public static bool RedirectToFile(string redirPath, string realPathRoot = pathToRepo)
+        {
+            using(StreamReader file = new StreamReader(redirPath))
+            {
+                string ln = file.ReadLine();
+                //string realPath = realPathRoot + "\\" + ln;
+                if (ln == null || !File.Exists(realPathRoot + "\\" + ln)) 
+                    return false;
+                return true;
+            }
         }
 
         public static bool CreateRedirectRepo(string  origPath, string destPath)
@@ -43,7 +56,7 @@ namespace RedirectFilesCreator
                 DirectoryInfo origInfo = new DirectoryInfo(origPath);
                 if (!origInfo.Exists) return false;
 
-                // Verifying if the destination exists and deleting it in the affiramtive and creating a new one
+                // Verifying if the destination exists and deleting it in the affirmative and creating a new one
                 DirectoryInfo destInfo = new DirectoryInfo(destPath);
                 if (destInfo.Exists)
                 {
@@ -62,7 +75,7 @@ namespace RedirectFilesCreator
             return false;
         }
 
-        public static bool DirectoryWalk(DirectoryInfo origDir, DirectoryInfo destDir)
+        public static bool DirectoryWalk(DirectoryInfo origDir, DirectoryInfo destDir, string pathSoFar = null)
         {
             FileInfo[] files = null;
             DirectoryInfo[] dirs = null;
@@ -78,10 +91,15 @@ namespace RedirectFilesCreator
             {
                 string redirFilename = fi.Name + RdrExt;
                 string redirFilepath = Path.Combine(destDir.FullName, redirFilename);
+                string gitPath = (pathSoFar != null) ? pathSoFar + "\\" + fi.Name : fi.Name;
+                Console.WriteLine(gitPath);
                 using (FileStream fs = File.Create(redirFilepath))
                 {
-                    byte[] data = new UTF8Encoding(true).GetBytes(fi.FullName);
-                    fs.Write(data);
+                    //byte[] data = new UTF8Encoding(true).GetBytes(fi.FullName);
+                    //fs.Write(data);
+                    byte[] buff = new UTF8Encoding(true).GetBytes(gitPath);
+                    fs.Write(buff);
+                    fs.Close();
                 }
             }
 
@@ -92,7 +110,9 @@ namespace RedirectFilesCreator
                 {
                     string redirPath = destDir.FullName + "\\" + di.Name;
                     Directory.CreateDirectory(redirPath);
-                    if (!DirectoryWalk(di, new DirectoryInfo(redirPath))) return false;
+                    string thisPath = (pathSoFar != null) ? pathSoFar + "\\" + di.Name : di.Name;
+                    //Console.WriteLine(pathSoFar);
+                    if (!DirectoryWalk(di, new DirectoryInfo(redirPath), thisPath)) return false;
                 }
             } catch (Exception e)
             {

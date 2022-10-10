@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "0/FL6ECqENYffp1NicF7AtK+2PTH0wo3NJZVKAvvf4lLQ7tyjTdHFWoc5O5n5j0Oe0GEkqE433otcAZKTmA6dw==",
+  "dgSpecHash": "Naqkcm3yeDygMncwyHa20fjeE24hF4rQ6NUhL3vws8fluJ73xa7IKhtRqUiU161epki+6HN/7I469BnXwUtYsw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ishim\\Source\\Repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+  "projectFilePath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ishim\\.nuget\\packages\\libgit2sharp\\0.26.2\\libgit2sharp.0.26.2.nupkg.sha512",
     "C:\\Users\\ishim\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.306\\libgit2sharp.nativebinaries.2.0.306.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

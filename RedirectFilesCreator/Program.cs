@@ -2,7 +2,7 @@
 
 using RedirectFilesCreator;
 
-class MainClass
+class Program
 {
     /* 
      * Main arguments -s "source code directory" -d "redirect files directory"
