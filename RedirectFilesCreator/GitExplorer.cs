@@ -48,6 +48,44 @@ namespace RedirectFilesCreator
             }
         }
 
+        public static bool VerifyRedirectIntegrity(string pathToRedir, string repoRoot)
+        {
+            DirectoryInfo di = new DirectoryInfo(pathToRedir);
+            FileInfo[] files = null;
+            DirectoryInfo[] dirs = null;
+
+            try
+            {
+                files = di.GetFiles("*.*");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            foreach (FileInfo fi in files)
+            {
+                if (!RedirectToFile(fi.FullName, repoRoot)) return false;
+                Console.Write("._ ");
+            }
+
+            try
+            {
+                dirs = di.GetDirectories();
+                foreach (DirectoryInfo dir in dirs)
+                {
+                    string path = dir.FullName;
+                    VerifyRedirectIntegrity(path, repoRoot);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return true;
+        }
+
         public static bool CreateRedirectRepo(string  origPath, string destPath)
         {
             try

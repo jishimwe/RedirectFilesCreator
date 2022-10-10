@@ -39,7 +39,11 @@ class Program
                     break;
             }
         }
-        ResultCreateRedirectRepo(GitExplorer.CreateRedirectRepo(sourceRepo, targetRepo)) ;
+        ResultCreateRedirectRepo(GitExplorer.CreateRedirectRepo(sourceRepo, targetRepo));
+        if (GitExplorer.VerifyRedirectIntegrity(targetRepo, sourceRepo))
+            Console.WriteLine("Redirect repo is valid");
+        else
+            Console.WriteLine("Redirect repos is invalid");
     }
 
     static void DefaultExec()
