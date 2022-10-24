@@ -14,6 +14,6 @@ This project implements the creation of **Redirect Files** version of an existin
 Launch the program with the following arguments:
 
 ```
--s <path>	:file_folder: : path to the source code root folder
--d <path>	:open_file_folder:	: path to the folder that will contain the redirect files
+-s <path>	: path to the source code root folder
+-d <path>	: path to the folder that will contain the redirect files
 ```
