@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {}
+    "C:\\repositories\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {
+    "C:\\repositories\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+        "projectUniqueName": "C:\\repositories\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
         "projectName": "RedirectFilesCreator",
-        "projectPath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
-        "packagesPath": "C:\\Users\\ishim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ishim\\source\\repos\\RedirectFilesCreator\\RedirectFilesCreator\\obj\\",
+        "projectPath": "C:\\repositories\\RedirectFilesCreator\\RedirectFilesCreator\\RedirectFilesCreator.csproj",
+        "packagesPath": "C:\\Users\\jean-paul\\.nuget\\packages\\",
+        "outputPath": "C:\\repositories\\RedirectFilesCreator\\RedirectFilesCreator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ishim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jean-paul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
