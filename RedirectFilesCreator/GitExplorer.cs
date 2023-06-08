@@ -10,22 +10,20 @@ namespace RedirectFilesCreator
         // Open a redirect file and check if the file redirected to exist
         public static bool RedirectToFile(string redirPath, string realPathRoot)
         {
-            using(StreamReader file = new StreamReader(redirPath))
-            {
-                string? ln = file.ReadLine();
-                if (ln == null || !File.Exists(realPathRoot + "\\" + ln)) 
-                    return false;
-                return true;
-            }
+	        using StreamReader file = new(redirPath);
+	        string? ln = file.ReadLine();
+	        if (ln == null || !File.Exists(realPathRoot + "\\" + ln)) 
+		        return false;
+	        return true;
         }
 
         public static bool VerifyRedirectIntegrity(string pathToRedir, string repoRoot)
         {
-            DirectoryInfo di = new DirectoryInfo(pathToRedir);
+            DirectoryInfo di = new(pathToRedir);
 
             try
             {
-				FileInfo[] files = di.GetFiles("*.*");
+				FileInfo[] _ = di.GetFiles("*.*");
             }
             catch (Exception e)
             {
@@ -54,11 +52,11 @@ namespace RedirectFilesCreator
             try
             {
                 // Verifying if the source code folder exists
-                DirectoryInfo origInfo = new DirectoryInfo(origPath);
+                DirectoryInfo origInfo = new(origPath);
                 if (!origInfo.Exists) return false;
 
                 // Verifying if the destination exists and deleting it in the affirmative and creating a new one
-                DirectoryInfo destInfo = new DirectoryInfo(destPath);
+                DirectoryInfo destInfo = new(destPath);
                 if (destInfo.Exists)
                 {
                     destInfo.Delete(true);
@@ -87,19 +85,20 @@ namespace RedirectFilesCreator
                 Console.WriteLine(e.Message);
             }
 
-			foreach (FileInfo fi in files) 
+            if (files != null)
             {
-                string redirFilename = fi.Name + RdrExt;
-                string redirFilepath = Path.Combine(destDir.FullName, redirFilename);
-                string gitPath = (pathSoFar != null) ? pathSoFar + "\\" + fi.Name : fi.Name;
-                Console.WriteLine(gitPath);
-                using (FileStream fs = File.Create(redirFilepath))
-                {
-                    byte[] buff = new UTF8Encoding(true).GetBytes(gitPath);
-                    fs.Write(buff);
-                    fs.Close();
-                }
-            }
+	            foreach (FileInfo fi in files)
+	            {
+		            string redirFilename = fi.Name + RdrExt;
+		            string redirFilepath = Path.Combine(destDir.FullName, redirFilename);
+		            string gitPath = (pathSoFar != null) ? pathSoFar + "\\" + fi.Name : fi.Name;
+		            Console.WriteLine(gitPath);
+		            using FileStream fs = File.Create(redirFilepath);
+		            byte[] buff = new UTF8Encoding(true).GetBytes(gitPath);
+		            fs.Write(buff);
+		            fs.Close();
+	            }
+			}
 
             try
             {

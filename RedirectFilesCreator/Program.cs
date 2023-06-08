@@ -9,7 +9,7 @@ class Program
      */
     static void Main(string[] args)
     {
-        if (args == null || args.Length == 0)
+        if (args.Length == 0)
         {
             PrintUsage();
             Environment.Exit(-2);
